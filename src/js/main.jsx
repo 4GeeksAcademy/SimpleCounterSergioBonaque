@@ -11,21 +11,11 @@ import '../styles/index.css'
 // components
 import Home from './components/Home';
 
-function SimpleCounter(props) {
-  return (<div className='bigCounter'>
-    <div className='calendar'>
-      <i className="fa-solid fa-clock"></i>
-    </div>
-    <div className='four'></div>
-    <div className='three'></div>
-    <div className='two'></div>
-    <div className='one'></div>
-  </div>);
-}
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <SimpleCounter />
+    <Home />
   </React.StrictMode>,
 )

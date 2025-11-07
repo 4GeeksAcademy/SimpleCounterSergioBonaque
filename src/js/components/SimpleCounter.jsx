@@ -15,10 +15,16 @@ function SimpleCounter() {
         return () => clearInterval(interval)
     }, []);
 
+ 
+    const contadorFormateado = contador.toString().padStart(6, '0');
+
     return (
-        <div>
+        <div className='div-padre'>
             <h1>
-                <FontAwesomeIcon icon={faClock} className="counter-icon" /> {contador}</h1>
+                <FontAwesomeIcon icon={faClock} className="counter-icon" /> 
+                <span className='contador-formateado'>{contadorFormateado}</span>
+             
+            </h1>
         </div>
     )
 }

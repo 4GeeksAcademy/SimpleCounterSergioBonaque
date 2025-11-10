@@ -5,7 +5,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 function SimpleCounter() {
 
     const [contador, setContador] = useState(0) // variable, funcion modifca la variable y entre los parentesis el valor inicial de mi variable
-                        
+
 
     // useEffect ejecuta algo nada mas iniciando(levantando) el componente 
     useEffect(() => {
@@ -15,15 +15,20 @@ function SimpleCounter() {
         return () => clearInterval(interval)
     }, []);
 
- 
-    const contadorFormateado = contador.toString().padStart(6, '0');
+    const minutos = Math.floor(contador / 60)
+    const segundos = contador % 60
+
+
+    const contadorFormateado = minutos.toString().padStart(3, '0') + segundos.toString().padStart(3, '0');
+
+
 
     return (
         <div className='div-padre'>
             <h1>
-                <FontAwesomeIcon icon={faClock} className="counter-icon" /> 
+                <FontAwesomeIcon icon={faClock} className="counter-icon" />
                 <span className='contador-formateado'>{contadorFormateado}</span>
-             
+
             </h1>
         </div>
     )

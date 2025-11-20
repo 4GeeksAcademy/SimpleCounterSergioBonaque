@@ -19,7 +19,7 @@ function SimpleCounter() {
     const segundos = contador % 60
 
 
-    const contadorFormateado = minutos.toString().padStart(3, '0') + segundos.toString().padStart(3, '0');
+    const contadorFormateado = minutos.toString().padStart(2, '0') + ":" + segundos.toString().padStart(2, '0');
 
 
 

@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from "react";
+// SimpleCounter.jsx
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
-function SimpleCounter() {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(prev => prev + 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Formatear segundos como "mm:ss" o solo número
+function SimpleCounter({ currentTime }) {
+  
   const formatTime = (totalSeconds) => {
     const mins = Math.floor(totalSeconds / 60);
     const secs = totalSeconds % 60;
@@ -24,7 +15,7 @@ function SimpleCounter() {
     <div className="div-padre">
       <h1>
         <FontAwesomeIcon icon={faClock} className="counter-icon" />
-        <span className="contador-formateado">{formatTime(seconds)}</span>
+        <span className="contador-formateado">{formatTime(currentTime)}</span>
       </h1>
     </div>
   );

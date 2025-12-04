@@ -1,18 +1,23 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useEffect } from "react";
 import SimpleCounter from "./SimpleCounter";
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			
-			<SimpleCounter />
-			
-		</div>
-	);
-};
+function App() {
+  const [seconds, setSeconds] = useState(0);
 
-export default Home;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds(prev => prev + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      
+      <SimpleCounter currentTime={seconds} />
+    </div>
+  );
+}
+
+export default App;

@@ -1,17 +1,21 @@
-
-.counter-icon{
-    color:blue;
+.counter-icon {
+    color: blue;
     margin-right: 10px;
-   font-size: 5rem;
+    font-size: 5rem;
 }
-.contador-formateado{
-    color:blueviolet;
+
+.contador-formateado {
+    color: blueviolet;
     height: 100%;
     width: 100%;
-    font-size: 3rem;npm
-}
-.div-padre{
-     margin-top: 5%;
-     font-family:'Times New Roman', Times, serif
+    font-size: 3rem;
 
+}
+
+.div-padre {
+    margin-top: 5%;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

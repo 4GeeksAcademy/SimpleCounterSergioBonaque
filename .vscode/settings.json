@@ -9,5 +9,8 @@
     },
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
-    ]
+    ],
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    }
 }

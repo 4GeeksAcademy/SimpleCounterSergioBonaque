@@ -1,37 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 function SimpleCounter() {
+  const [seconds, setSeconds] = useState(0);
 
-    const [contador, setContador] = useState(0) // variable, funcion modifca la variable y entre los parentesis el valor inicial de mi variable
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds(prev => prev + 1);
+    }, 1000);
 
+    return () => clearInterval(interval);
+  }, []);
 
-    // useEffect ejecuta algo nada mas iniciando(levantando) el componente 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setContador((prev) => prev + 1)
-        }, 1000)
-        return () => clearInterval(interval)
-    }, []);
+  // Formatear segundos como "mm:ss" o solo número
+  const formatTime = (totalSeconds) => {
+    const mins = Math.floor(totalSeconds / 60);
+    const secs = totalSeconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
 
-    const minutos = Math.floor(contador / 60)
-    const segundos = contador % 60
-
-
-    const contadorFormateado = minutos.toString().padStart(2, '0') + ":" + segundos.toString().padStart(2, '0');
-
-
-
-    return (
-        <div className='div-padre'>
-            <h1>
-                <FontAwesomeIcon icon={faClock} className="counter-icon" />
-                <span className='contador-formateado'>{contadorFormateado}</span>
-
-            </h1>
-        </div>
-    )
+  return (
+    <div className="div-padre">
+      <h1>
+        <FontAwesomeIcon icon={faClock} className="counter-icon" />
+        <span className="contador-formateado">{formatTime(seconds)}</span>
+      </h1>
+    </div>
+  );
 }
 
-export default SimpleCounter
+export default SimpleCounter;

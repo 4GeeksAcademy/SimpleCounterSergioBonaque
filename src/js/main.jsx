@@ -12,10 +12,32 @@ import '../styles/index.css'
 import Home from './components/Home';
 
 
+let seconds = 0
+let minutes = 0
+let hours = 0
 
+
+setInterval(() => {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Home />
+    <Home seconds= {seconds} minutes = {minutes} hours = {hours}/> 
   </React.StrictMode>,
 )
+
+  seconds++
+  if (seconds >= 60) {
+    minutes++
+    seconds = 0
+  }
+  if (minutes >= 60) {
+    hours++
+    minutes = 0
+
+  }
+  
+
+}, 1000);
+
+
+
